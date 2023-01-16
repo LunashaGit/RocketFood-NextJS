@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import { UserInputError } from "apollo-server";
 import dotenv from "dotenv";
 dotenv.config({ path: ".env" });
-console.log(process.env.JWT_SECRET as string);
+
 export const QueryUser = {
   Query: {
     async getUsers() {
