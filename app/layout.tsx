@@ -7,13 +7,11 @@ type RootLayoutType = {
 
 export default function RootLayout({ children }: RootLayoutType) {
   return (
-    <html lang="fr">
+    <html lang="en">
       <head></head>
-      <body className="relative bg-gray-50 dark:bg-[#70c4bc] ">
+      <body className="relative bg-primary min-h-screen flex flex-col gap-72">
         <Navigation />
-        <div className="flex flex-col h-vh65 px-4 bg-[#f8fcfc] w-90% rounded-md m-auto mt-24">
-          {children}
-        </div>
+        <div className="bg-light grow">{children}</div>
       </body>
     </html>
   );

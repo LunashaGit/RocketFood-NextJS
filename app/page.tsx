@@ -3,13 +3,16 @@ import deliverImg from './../public/images/deliver.png';
 
 export default function Page() {
   return (
-    <div className="shadow-bottom">
-      <Image
-        src={deliverImg}
-        alt="Deliver image"
-        placeholder="blur"
-        className="mx-auto mt-moins10 shadow-img drop-shadow-2xl"
-      />
-    </div>
+    <section className="relative w-full">
+      <div className="-translate-y-96 flex flex-col items-center">
+        <Image
+          src={deliverImg}
+          alt="Deliver image"
+          placeholder="blur"
+          className="w-full h-full"
+        />
+        <span className="bg-gradient-to-r from-transparent via-black to-transparent w-full mx-auto h-1 blur-sm" />
+      </div>
+    </section>
   );
 }

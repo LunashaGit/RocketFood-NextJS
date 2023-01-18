@@ -1,0 +1,47 @@
+.bg-blue-gradient {
+  background: linear-gradient(
+    157.81deg,
+    #5d6969 -43.27%,
+    #536868 -21.24%,
+    #3b5757 12.19%,
+    #304d4d 29.82%,
+    #244242 51.94%,
+    #183434 90.29%
+  );
+}
+.bg-primary-gradient {
+  background: linear-gradient(
+    157.81deg,
+    #f8d2d7 -43.27%,
+    #e7b6bc -21.24%,
+    #db8892 12.19%,
+    #e97381 29.82%,
+    #eb596a 51.94%,
+    #ed3f54 90.29%
+  );
+}
+
+.ripple {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: #2c2b2b8a;
+  display: block;
+  content: '';
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
