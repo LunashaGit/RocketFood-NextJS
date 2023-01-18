@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "frontend": "next dev",
-    "backend": "tsx watch src/back/index.tsx"
+    "backend": "tsx watch back/index.tsx"
   },
   "dependencies": {
     "@apollo/client": "^3.7.4",
