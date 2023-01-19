@@ -1,11 +1,10 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFire } from '@fortawesome/free-solid-svg-icons';
-import Button from 'components/button';
-import { useState } from 'react';
-
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFire } from "@fortawesome/free-solid-svg-icons";
+import Button from "components/button";
+import { useState } from "react";
 export default function Navigation() {
   const [login, setLogin] = useState<boolean>(false);
   return (

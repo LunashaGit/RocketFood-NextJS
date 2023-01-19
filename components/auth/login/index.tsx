@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Client } from "back/client";
 import { CREATE_LOGIN } from "back/request";
 import { LoginForm } from "back/types";
+import { AUTH_TOKEN } from "back/constants";
 import Input from "components/input";
 import Button from "components/button";
+import { setContext } from "@apollo/client/link/context";
 
 export default function Login() {
   const [form, setForm] = useState<LoginForm>({
@@ -24,6 +26,8 @@ export default function Login() {
         password: form.password,
       },
     });
+    console.log(data.login);
+    localStorage.setItem(AUTH_TOKEN, data.login.token);
     setResponse(data);
   };
 

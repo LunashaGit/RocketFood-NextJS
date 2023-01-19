@@ -7,6 +7,7 @@ const typeDefs = gql`
     firstname: String!
     lastname: String!
     isAdmin: Boolean!
+    token: String!
   }
   type Event {
     id: ID!

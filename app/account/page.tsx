@@ -31,6 +31,7 @@ export default function Page() {
       >
         <Register />
       </Transition>
+      <Button onClick={() => setLogin(!login)}>Click</Button>
     </div>
   );
 }

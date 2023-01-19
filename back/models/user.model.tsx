@@ -8,6 +8,7 @@ interface IUser extends Document {
   firstname: string;
   lastname: string;
   isAdmin: boolean;
+  token: string;
 }
 
 interface IUserDocument extends IUser {}
@@ -48,6 +49,11 @@ const UserSchema: Schema<IUserDocument> = new Schema({
     type: Boolean,
     default: false,
     trim: true,
+  },
+  token: {
+    type: String,
+    trim: true,
+    default: "",
   },
 });
 

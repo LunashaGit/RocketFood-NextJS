@@ -7,6 +7,7 @@ export const CREATE_LOGIN = gql`
       firstname
       id
       isAdmin
+      token
     }
   }
 `;

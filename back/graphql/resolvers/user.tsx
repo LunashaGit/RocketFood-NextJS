@@ -5,6 +5,15 @@ import { UserInputError } from "apollo-server";
 import dotenv from "dotenv";
 dotenv.config({ path: ".env" });
 
+type User = {
+  id: number;
+  email: string;
+  firstname: string;
+  lastname: string;
+  isAdmin: boolean;
+  password: string;
+};
+
 export const QueryUser = {
   Query: {
     async getUsers() {
@@ -12,27 +21,33 @@ export const QueryUser = {
     },
   },
   Mutation: {
-    async login(_: any, { email, password }: any) {
+    async login(_: string, { email, password }: User) {
       const user = await Users.findOne({ email });
+
       if (!user) {
         throw new UserInputError("User not found");
       }
       const isMatch = await bcrypt.compare(password, user.password);
-      console.log(isMatch);
       if (!isMatch) {
         throw new UserInputError("Wrong password");
       }
-      const token = jwt.sign(
-        { id: user.id },
+
+      const jwt_token = jwt.sign(
+        { id: user._id, email: user.email },
         process.env.JWT_SECRET as string,
-        {
-          expiresIn: 3 * 24 * 60 * 60,
-        }
+        { expiresIn: "1d" }
       );
+
+      jwt_token && (user.token = jwt_token);
+      await user.save();
+
       return {
-        ...user._doc,
         id: user._id,
-        token,
+        email: user.email,
+        firstname: user.firstname,
+        lastname: user.lastname,
+        isAdmin: user.isAdmin,
+        token: user.token,
       };
     },
 
